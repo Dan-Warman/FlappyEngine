@@ -1,6 +1,6 @@
 package Main.FlappyEngine.Testing;
 
-
+//By Dan Warman
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -282,6 +282,10 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 		if(e.getKeyCode() == KeyEvent.VK_UP){
 			jump();
 		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_W){
+			jump();
+		}
 	}
 	
 	
@@ -317,3 +321,4 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 	}
 
 }
+//By Dan Warman

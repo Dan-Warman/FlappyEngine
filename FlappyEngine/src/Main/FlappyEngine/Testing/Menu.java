@@ -1,9 +1,11 @@
 package Main.FlappyEngine.Testing;
+//By Dan Warman
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,8 +14,12 @@ public class Menu {
 	
 	private static int WIDTH = 800;
 	private static int HEIGHT = 800;
+	private static String TITLE = "Menu";
 	
 	public static void main(String[] args){
+		
+			ImageIcon icon = new ImageIcon("src/Main/FlappyEngine/Imgs/icon.png");
+		
 		 	JFrame frame = new JFrame();
 		 	frame.setSize(WIDTH, HEIGHT);
 		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,6 +27,8 @@ public class Menu {
 		    frame.setVisible(true);
 		    frame.setBackground(Color.cyan);
 		    frame.setResizable(false);
+		    frame.setTitle(TITLE);
+		    frame.setIconImage(icon.getImage());
 		    
 		    JLabel credits = new JLabel();
 		    
@@ -38,8 +46,10 @@ public class Menu {
 		        public void mouseReleased(MouseEvent e){
 		            if ( e.getButton() == 1 ){ // 1-left, 2-middle, 3-right button
 		                FlappyBird.main(args);
+		                frame.dispose();
 		            }
 		        }
 		    });
 	}
 }
+//By Dan Warman
