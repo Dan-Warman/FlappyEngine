@@ -4,7 +4,14 @@ package Main.FlappyEngine.Testing;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,28 +23,25 @@ public class Menu {
 	private static int HEIGHT = 800;
 	private static String TITLE = "Menu";
 	
-	private static String CONTROLSTEXT =
-			"W To Jump\n "
-			+ "Space To Jump\n "
-			+ "Up Arrow To Jump\n "
-			+ "Left Mouse To Jump\n ";
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		
 			ImageIcon icon = new ImageIcon("src/Main/FlappyEngine/Imgs/icon.png");
+			
+			final BufferedImage controlstext = ImageIO.read(new File("src/Main/FlappyEngine/Imgs/controlstext.png"));
 		
 		 	JFrame frame = new JFrame();
 		 	frame.setSize(WIDTH, HEIGHT);
 		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		    frame.getContentPane().setLayout(null);
 		    frame.setVisible(true);
-		    frame.setBackground(Color.cyan);
+		    frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		    frame.setResizable(false);
 		    frame.setTitle(TITLE);
 		    frame.setIconImage(icon.getImage());
 		    
-			JLabel controllabl = new JLabel(CONTROLSTEXT);
-			controllabl.setBounds(300, 300, 400,400);
+			JLabel controllabl = new JLabel(new ImageIcon(controlstext));
+			controllabl.setBounds(200, 200, 400,400);
 			frame.getContentPane().add(controllabl);
 			controllabl.setVisible(false);
 		    
@@ -47,6 +51,13 @@ public class Menu {
 		    controls.setBackground(Color.pink);
 		    
 		    controls.addMouseListener(new MouseAdapter(){
+		    	public void mouseEntered(MouseEvent e){
+		    		controls.setBackground(Color.pink.darker());
+		    	}
+		    	public void mouseExited(MouseEvent e){
+		    		controls.setBackground(Color.pink);
+		    		
+		    	}
 		    	public void mouseReleased(MouseEvent e){
 		    		if(e.getButton() == 1){
 		    			//System.out.println("isWorking");
@@ -69,6 +80,13 @@ public class Menu {
 		    exit.setBackground(Color.pink);
 		    
 		    exit.addMouseListener(new MouseAdapter(){
+		    	public void mouseEntered(MouseEvent e){
+		    		exit.setBackground(Color.pink.darker());
+		    	}
+		    	public void mouseExited(MouseEvent e){
+		    		exit.setBackground(Color.pink);
+		    		
+		    	}
 		    	public void mouseReleased(MouseEvent e){
 		    		if(e.getButton() == 1){
 		    			frame.dispose();
@@ -89,13 +107,22 @@ public class Menu {
 
 		    
 		    start.addMouseListener(new MouseAdapter() {
+		    	public void mouseEntered(MouseEvent e){
+		    		start.setBackground(Color.pink.darker());
+		    	}
+		    	public void mouseExited(MouseEvent e){
+		    		start.setBackground(Color.pink);
+		    		
+		    	}
 		        public void mouseReleased(MouseEvent e){
 		            if ( e.getButton() == 1 ){ // 1-left, 2-middle, 3-right button
-		                FlappyBird.main(args);
+		            	FlappyEng.main(args);
 		                frame.dispose();
 		            }
 		        }
 		    });
+		    
+
 	}
 }
 //By Dan 

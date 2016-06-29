@@ -17,7 +17,7 @@ public class Renderer extends JPanel
 		super.paintComponent(g);
 
 		try {
-			FlappyBird.flappyBird.repaint(g);
+			FlappyEng.flappyBird.repaint(g);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
