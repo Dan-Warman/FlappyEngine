@@ -1,6 +1,6 @@
 package Main.FlappyEngine.Testing;
 
-//By Dan Warman
+//By Dan 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -212,6 +212,7 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 
 		renderer.repaint();
 	}
+	
 
 	public void repaint(Graphics g) throws IOException{
 		
@@ -321,4 +322,4 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener
 	}
 
 }
-//By Dan Warman
+//By Dan 

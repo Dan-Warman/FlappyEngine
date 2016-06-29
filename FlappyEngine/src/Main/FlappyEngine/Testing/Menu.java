@@ -1,5 +1,5 @@
 package Main.FlappyEngine.Testing;
-//By Dan Warman
+//By Dan 
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -16,6 +16,12 @@ public class Menu {
 	private static int HEIGHT = 800;
 	private static String TITLE = "Menu";
 	
+	private static String CONTROLSTEXT =
+			"W To Jump\n "
+			+ "Space To Jump\n "
+			+ "Up Arrow To Jump\n "
+			+ "Left Mouse To Jump\n ";
+	
 	public static void main(String[] args){
 		
 			ImageIcon icon = new ImageIcon("src/Main/FlappyEngine/Imgs/icon.png");
@@ -30,10 +36,37 @@ public class Menu {
 		    frame.setTitle(TITLE);
 		    frame.setIconImage(icon.getImage());
 		    
+			JLabel controllabl = new JLabel(CONTROLSTEXT);
+			controllabl.setBounds(300, 300, 400,400);
+			frame.getContentPane().add(controllabl);
+			controllabl.setVisible(false);
+		    
+		    JButton controls = new JButton("Controls");
+		    controls.setBounds(300, 150,200,23);
+		    frame.getContentPane().add(controls);
+		    controls.setBackground(Color.pink);
+		    
+		    controls.addMouseListener(new MouseAdapter(){
+		    	public void mouseReleased(MouseEvent e){
+		    		if(e.getButton() == 1){
+		    			//System.out.println("isWorking");
+		    			frame.getContentPane().add(controllabl);
+		    			controllabl.setVisible(true);
+		    		}
+		    		if(e.getButton() == 3){
+		    			frame.getContentPane().add(controllabl);
+		    			controllabl.setVisible(false);
+		    		}
+		    		    		
+		    	}
+		    	
+		    	
+		    });
+		    
 		    JButton exit = new JButton("Exit");
 		    exit.setBounds(300,200,200,23);
 		    frame.getContentPane().add(exit);
-		    start.setBackground(Color.pink);
+		    exit.setBackground(Color.pink);
 		    
 		    exit.addMouseListener(new MouseAdapter(){
 		    	public void mouseReleased(MouseEvent e){
@@ -50,7 +83,7 @@ public class Menu {
 		    frame.getContentPane().add(credits);
 
 		    JButton start = new JButton("Start");
-		    start.setBounds(300, 150, 200, 23);
+		    start.setBounds(300, 100, 200, 23);
 		    frame.getContentPane().add(start);
 		    start.setBackground(Color.pink);
 
@@ -65,4 +98,4 @@ public class Menu {
 		    });
 	}
 }
-//By Dan Warman
+//By Dan 
