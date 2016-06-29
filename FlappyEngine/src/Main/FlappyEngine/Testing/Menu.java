@@ -30,6 +30,19 @@ public class Menu {
 		    frame.setTitle(TITLE);
 		    frame.setIconImage(icon.getImage());
 		    
+		    JButton exit = new JButton("Exit");
+		    exit.setBounds(300,200,200,23);
+		    frame.getContentPane().add(exit);
+		    start.setBackground(Color.pink);
+		    
+		    exit.addMouseListener(new MouseAdapter(){
+		    	public void mouseReleased(MouseEvent e){
+		    		if(e.getButton() == 1){
+		    			frame.dispose();
+		    		}
+		    	}
+		    });
+		    
 		    JLabel credits = new JLabel();
 		    
 		    credits.setText("By Dan Warman");
